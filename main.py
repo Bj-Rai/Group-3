@@ -79,6 +79,16 @@ while running:
     if keys[pygame.K_DOWN]:
         player_y += player_speed
 
+    # Boundary checking
+    if player_x < 0:
+        player_x = 0
+    elif player_x > WIDTH - player_size:
+        player_x = WIDTH - player_size
+    if player_y < 0:
+        player_y = 0
+    elif player_y > HEIGHT - player_size:
+        player_y = HEIGHT - player_size
+
     # Enemy movement (simple chasing)
     if enemy_x < player_x:
         enemy_x += enemy_speed
